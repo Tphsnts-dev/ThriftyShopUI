@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { signOut } from "../actions/auth.actions"
+import { signOut } from "../app/actions/auth.actions"
 import { useRouter } from "next/navigation";
 
 export function NavBar() {

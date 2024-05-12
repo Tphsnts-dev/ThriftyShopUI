@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input"
 
 import { signInFormSchema } from "@/types";
-import { signIn } from "@/actions/auth.actions";
+import { signIn } from "@/app/actions/auth.actions";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 export function SignInForm() {

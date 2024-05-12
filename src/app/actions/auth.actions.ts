@@ -1,7 +1,7 @@
 "use server"
 
 import { z } from "zod"
-import { signUpFormSchema, signInFormSchema } from "../types/index"
+import { signUpFormSchema, signInFormSchema } from "../../types/index"
 import { Argon2id } from "oslo/password"
 import { generateId } from "lucia"
 import { userTable } from "@/database/schema"

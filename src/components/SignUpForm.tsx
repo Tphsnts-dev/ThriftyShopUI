@@ -16,7 +16,7 @@ import { useState } from 'react';
 import React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpFormSchema } from "@/types";
-import { signUp } from "@/actions/auth.actions";
+import { signUp } from "@/app/actions/auth.actions";
 import { toast } from "react-toastify";
 
 export function SignUpForm() {
