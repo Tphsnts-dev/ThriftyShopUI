@@ -21,7 +21,9 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SignInForm } from "@/components/SignInForm";
 import { SignUpForm } from "@/components/SignUpForm";
-export default async function Home() {
+
+
+export default function Home() {
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">

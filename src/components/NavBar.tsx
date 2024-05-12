@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { signout } from "../lib/auth"
+import { signOut } from "../actions/auth.actions"
 import { useRouter } from "next/navigation";
 
 export function NavBar() {
@@ -10,7 +10,7 @@ export function NavBar() {
   const router = useRouter();
   const handleSignout = async () => {
     try {
-      await signout();
+      await signOut();
       return new Promise((resolve) => {
         setTimeout(() => {
           router.push('/home');

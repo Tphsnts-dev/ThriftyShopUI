@@ -23,7 +23,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
-import { validateRequest } from "@/lib/lucia/session";
+import { validateRequest } from "@/database/auth";
 import { redirect } from "next/navigation";
 import { NavBar } from "@/components/NavBar";
 import { ProductComponent} from "@/components/ProductComponent";
