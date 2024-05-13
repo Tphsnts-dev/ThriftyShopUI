@@ -15,7 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input"
 
-import { signInFormSchema } from "@/types";
+import { signInFormSchema } from "@/types/index";
 import { signIn } from "@/app/actions/auth.actions";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -45,12 +45,13 @@ export function SignInForm() {
             if (response.success == false && response.error == "Admins cannot log in using this function") {
                 setIsAdminExists(true);
             }
-            else {
+            if(response.success == true){
                 router.push('/productselection');
             }
         } catch (error) {
             toast.error('An unexpected error occurred:');
         }
+        
     }
     if (isloginSubmitted) {
 

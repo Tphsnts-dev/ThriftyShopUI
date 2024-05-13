@@ -1,23 +1,20 @@
 "use server"
-
 import { z } from "zod"
 import { signUpFormSchema, signInFormSchema } from "../../types/index"
 import { Argon2id } from "oslo/password"
 import { generateId } from "lucia"
 import { userTable } from "@/database/schema"
-import db from "@/database"
+import db from "@/database/index"
 import { lucia, validateRequest } from "@/database/auth"
 import { cookies } from "next/headers"
-import { eq } from "drizzle-orm"
+import { eq} from "drizzle-orm"
 
 export const signUp = async (values: z.infer<typeof signUpFormSchema>) => {
   console.log(values)
   const hashedPassword = await new Argon2id().hash(values.password)
   const userId: string = generateId(15)
-
   try {
-    await db
-      .insert(userTable)
+    await db.insert(userTable)
       .values({
         id: userId,
         email: values.email,
@@ -47,6 +44,7 @@ export const signUp = async (values: z.infer<typeof signUpFormSchema>) => {
 }
 
 export const signIn = async (values: z.infer<typeof signInFormSchema>) => {
+  console.log(values)
   const existingUser = await db.query.userTable.findFirst({
     where: (table) => eq(table.email, values.email),
   })

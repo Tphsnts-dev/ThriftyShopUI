@@ -15,7 +15,7 @@ import { z } from "zod"
 import { useState } from 'react';
 import React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signUpFormSchema } from "@/types";
+import { signUpFormSchema } from "@/types/index";
 import { signUp } from "@/app/actions/auth.actions";
 import { toast } from "react-toastify";
 
@@ -40,6 +40,7 @@ export function SignUpForm() {
             const response = await signUp(values)
             if (await response.success) {
                 setIsFormSubmitted(true);
+                signUpform.reset();
             }
         } catch (error) {
             toast.error('An unexpected error occurred:');
@@ -115,7 +116,7 @@ export function SignUpForm() {
                     )} />
                     <FormField control={signUpform.control} name="confirmPassword" render={({ field }) => (
                         <FormItem style={{ marginTop: "20px" }}>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>Confirm Password</FormLabel>
                             <FormControl>
                                 <Input type="password" placeholder="Password" {...field} />
                             </FormControl>

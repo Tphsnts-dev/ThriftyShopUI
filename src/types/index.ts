@@ -1,8 +1,5 @@
-"use server"
 import { z } from "zod"
-import db from "@/database/index"
-import { userTable } from "@/database/schema"
-import { eq } from "drizzle-orm";
+import { emailExists, phoneNumberExist } from "./checker"
 
 let imageValidator;
 
@@ -16,24 +13,7 @@ if (typeof window === "undefined") {
         });
 }
 
-const emailExists = async (value: string) => {
-    try {
-        const user1 = (await db.select().from(userTable).where(eq(userTable.email, value)));
-        return user1.find((user) => user !== undefined) !== undefined;
-    } catch (error) {
-        console.error(error);
-        return false;
-    }
-};
-const phoneNumberExist = async (value: string) => {
-    try {
-        const user1 = (await db.select().from(userTable).where(eq(userTable.phoneNumber, value)));
-        return user1.find((user) => user !== undefined) !== undefined;
-    } catch (error) {
-        console.error(error);
-        return false;
-    }
-};
+
 export const signInFormSchema = z.object({
     email: z.string().email(),
     password: z.string().min(1, { message: "Password is required" }).max(20),
@@ -53,10 +33,10 @@ export const signUpFormSchema = z.object({
         'Invalid Philippine phone number. Please use the format 09xxxxxxxxx or +639xxxxxxxxx.'
     ).refine(async (phoneNumber) => {
         if (await phoneNumberExist(phoneNumber)) {
-            return false;
+          return false;
         }
         return true;
-    }, 'Phone Number already exists'),
+      }, 'Phone Number already exists'),
     password: z
         .string()
         .min(8, { message: "Confirm Password must be at least 8 characters long" })

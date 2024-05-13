@@ -29,7 +29,7 @@ import { NavBar } from "@/components/NavBar";
 import { ProductComponent} from "@/components/ProductComponent";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { NextApiRequest, NextApiResponse } from "next";
-export default async function Page(req: NextApiRequest, res: NextApiResponse) {
+export default async function Page() {
   const { user } = await validateRequest()
   if (!user) {
     return redirect("/home")

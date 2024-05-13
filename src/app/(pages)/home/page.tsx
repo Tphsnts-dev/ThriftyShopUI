@@ -23,7 +23,7 @@ import { SignInForm } from "@/components/SignInForm";
 import { SignUpForm } from "@/components/SignUpForm";
 
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
