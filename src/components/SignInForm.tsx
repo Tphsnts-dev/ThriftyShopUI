@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -63,8 +64,9 @@ export function SignInForm() {
                             <DialogTitle>Invalid Account</DialogTitle>
                             <DialogDescription> Invalid Username and Password, Please Try Again.</DialogDescription>
                         </DialogHeader>
-                        <DialogFooter>
-                            <Button onClick={() => { setIsloginSubmitted(false); }}>Close</Button>
+                        <DialogFooter><DialogClose>
+                        <Button onClick={() => { setIsloginSubmitted(false); }}>Close</Button>
+                        </DialogClose>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
@@ -83,7 +85,9 @@ export function SignInForm() {
                             <DialogDescription>Account does not Exist, Please Create an Account</DialogDescription>
                         </DialogHeader>
                         <DialogFooter>
+                            <DialogClose>
                             <Button onClick={() => { setIsAccountExists(false); }}>Close</Button>
+                            </DialogClose>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
@@ -102,7 +106,9 @@ export function SignInForm() {
                             <DialogDescription>Admins cannot log in using this function</DialogDescription>
                         </DialogHeader>
                         <DialogFooter>
-                            <Button onClick={() => { setIsAdminExists(false); }}>Close</Button>
+                        <DialogClose>
+                        <Button onClick={() => { setIsAdminExists(false); }}>Close</Button>
+                            </DialogClose>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>

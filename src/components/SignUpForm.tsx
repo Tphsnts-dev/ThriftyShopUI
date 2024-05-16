@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -56,7 +57,9 @@ export function SignUpForm() {
                             <DialogDescription> Your account has been created successfully. You can now log in to your account.</DialogDescription>
                         </DialogHeader>
                         <DialogFooter>
+                            <DialogClose>
                             <Button onClick={() => { setIsFormSubmitted(false); }}>Close</Button>
+                            </DialogClose>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>

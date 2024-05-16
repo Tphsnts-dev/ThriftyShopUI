@@ -3,7 +3,7 @@ import 'flowbite';
 import { validateRequest } from "@/database/auth";
 import { redirect } from "next/navigation";
 import { NavBar } from "@/components/NavBar";
-import { productsAvailable,checkCart } from "../../actions/checker"
+import { productsAvailable,checkCart } from "@/app/actions/checker"
 import React from "react";
 import { CardComponent } from "@/components/CardComponent";
 import { CheckoutComponent } from "@/components/CheckoutComponent";
@@ -19,7 +19,7 @@ export default async function Page() {
 
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar nav="products"/>
       <br></br>
       <br></br>
       <br></br>
