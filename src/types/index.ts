@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { emailExists, phoneNumberExist } from "./checker"
+import { emailExists, phoneNumberExist } from "../app/actions/checker"
 
 let imageValidator;
 
@@ -40,7 +40,6 @@ export const signUpFormSchema = z.object({
     password: z
         .string()
         .min(8, { message: "Confirm Password must be at least 8 characters long" })
-        .max(10, { message: "Confirm Password must be at most 10 characters long" })
         .refine((password) => /[A-Z]/.test(password), {
             message: "Password must contain at least one uppercase letter.",
         })
@@ -59,7 +58,6 @@ export const signUpFormSchema = z.object({
     confirmPassword: z
         .string()
         .min(8, { message: "Confirm Password is required" })
-        .max(20),
 })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Passwords do not match",

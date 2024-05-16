@@ -116,9 +116,9 @@ export function SignInForm() {
                 <form onSubmit={signInform.handleSubmit(onSubmit)} style={{ maxWidth: "400px", margin: "auto" }}>
                     <FormField control={signInform.control} name="email" render={({ field }) => (
                         <FormItem style={{ marginTop: "20px" }}>
-                            <FormLabel>Username</FormLabel>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input type="text" placeholder="Username" {...field} />
+                                <Input type="text" placeholder="Email" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
